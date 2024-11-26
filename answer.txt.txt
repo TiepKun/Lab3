@@ -1,0 +1,18 @@
+2) So sánh 2 phương thức Array và Varargs trong overload
+- Array: 
+	+) Ưu điểm: Sử dụng với mảng có sẵn, khi làm việc với danh sách dữ liệu có kích thước lớn 
+	+) Nhược điểm: Tạo một mảng cho trước gây lãng phí tài nguyên và làm phức tạp khi yêu cầu chỉ cần truyền vào 1 hoặc 2 phần tử, cần nhiều mảng nếu muốn truyền một số lượng phần tử khác nhau 
+- Varargs: 
+	+) Ưu điểm: Truyền một đối số dữ liệu bất kì mà không cần phải tạo mảng cho trước => linh hoạt hơn. 
+làm cho mã nguồn trở nên đơn giản hơn khi không cần viết mã tạo mảng mà chỉ cần truyền đối số trực tiếp,ứng dụng thực tế hơn.
+	+) Nhược điểm: Không phù hợp với dữ liệu lớn, có thể tốn bộ nhớ khi phải truyền nhiều đối số vào, không phù hợp dữ liệu tạo mảng.
+- Trong bài tập "overload" tôi thích sử dụng phương thức Varargs hơn Array vì: 
+	+) Cho phép thêm 1 hoặc nhiều DVD trong một lần gọi phương thức mà không cần tạo mảng 
+	+) Varargs thực chất vẫn có thể dùng như mảng, đảm bảo tính tương thích với cả 2 trường hợp thêm 1 DVD hoặc nhiều DVD.
+	+) Mã nguồn trông đơn giản và dễ hiểu hơn 
+3) *) Java là ngôn ngữ truyền giá trị 
+- Khi truyền kiểu dữ liệu nguyên thủy (primitive values), giá trị của biến sẽ được sao chép và truyền vào phương thức
+- Khi truyền đối tượng vào phương thức, Java sẽ sao chép tham chiếu (địa chỉ) của đối tượng, chứ không phải sao chép bản sao của đối tượng đó. Nếu thay đổi đối tượng trong phương thức, đối tượng gốc bên ngoài cũng bị thay đổi. Nhưng trên thực tế Java vẫn là ngôn ngữ truyền giá trị không phải truyền tham chiếu
+*) 
+- swap không hoạt động đúng vì các tham chiếu đến 2 đối tượng jungleDVD và cinderellaDVD được truyền vào, nhưng bản thân tham chiếu chỉ là bản sao. Các tham chiếu o1 và o2 chỉ là bản sao của tham chiếu gốc, bên trong việc gán o1 và o2 chỉ thay đổi các tham số cục bộ không ảnh hưởng đến các tham chiếu gốc bên ngoài.
+- change hoạt động đúng vì khi gọi dvd.setTitle(title) sẽ truy cập trực tiếp vàoối tượng jungleDVD được tham chiếu, dvd và jungleDVD cùng trỏ đến một đối tượng, việc thay đổi tiêu đề thông qua setTitle sẽ ảnh hưởng trực tiếp đến đối tượng jungleDVD. 
