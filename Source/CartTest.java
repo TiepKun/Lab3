@@ -19,6 +19,9 @@ public class CartTest {
         // Test search by ID
         System.out.println("\nSearching for DVD with ID 1:");
         cart.searchById(1);
+        
+        System.out.println("\nSearching for DVD with ID 3:");
+        cart.searchById(3);
 
         System.out.println("\nSearching for DVD with ID 5:");
         cart.searchById(5);
